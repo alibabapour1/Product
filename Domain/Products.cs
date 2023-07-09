@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Domain
 {
-    public class Products : IValidatableObject
+    public class Products 
     {
 
         [Key]
@@ -35,26 +37,12 @@ namespace Domain
 
 
         public Users User { get; set; }
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Access the database context
-            var dbContext = (YourDbContext)validationContext.GetService(typeof(YourDbContext));
 
-            // Check if the email is already used
-            var existingEmail = dbContext.Products.FirstOrDefault(p => p.ManufactureEmail == ManufactureEmail);
-            if (existingEmail != null)
-            {
-                yield return new ValidationResult("ManufactureEmail must be unique.", new[] { nameof(ManufactureEmail) });
-            }
 
-            // Check if the phone number is already used
-            var existingPhone = dbContext.Products.FirstOrDefault(p => p.ManufacturePhone == ManufacturePhone);
-            if (existingPhone != null)
-            {
-                yield return new ValidationResult("ManufacturePhone must be unique.", new[] { nameof(ManufacturePhone) });
-            }
-        }
+
     }
 }
 

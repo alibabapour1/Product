@@ -1,7 +1,10 @@
 using Application.Abstractions;
+using Application.Products_CQRS.Commands;
 using DataAccess;
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var cs = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MyDbcontext>(opt=>opt.UseSqlServer(cs));
-builder.Services.AddScoped<IProductRepository, ProductRepository>(); 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddMediatR(typeof(CreateProduct));
 
 var app = builder.Build();
 

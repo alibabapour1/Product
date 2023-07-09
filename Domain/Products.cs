@@ -23,7 +23,7 @@ namespace Domain
         [EmailAddress]
         [MaxLength(130, ErrorMessage = "The Email Of The Product Manufacure Should Contains 130 Characters At Most")]
 
-        public string? ManufactureEmail { get; set; }
+        public string ManufactureEmail { get; set; }
 
         [Required]
         [RegularExpression(@"^(\+98|0)?9\d{9}$", ErrorMessage = "Please enter a valid Iranian phone number.")]
@@ -34,7 +34,7 @@ namespace Domain
 
         [Required]
         [MaxLength(130, ErrorMessage = "The name Of The Product Should Contains 130 Characters At Most")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
 
         public Users User { get; set; }

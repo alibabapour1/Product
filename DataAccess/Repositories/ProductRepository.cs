@@ -55,7 +55,6 @@ namespace DataAccess.Repositories
             var p = await _ctx.Products.FirstOrDefaultAsync(p=>p.Id==productid);
             p.ManufacturePhone= product.ManufacturePhone;
             p.ManufactureEmail= product.ManufactureEmail;
-            p.Name= product.Name;
             p.ProduceDate= DateTime.Now;
             p.IsAvailable= product.IsAvailable;
             p.Name = product.Name;

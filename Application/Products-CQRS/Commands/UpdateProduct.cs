@@ -11,7 +11,10 @@ namespace Application.Products_CQRS.Commands
     public class UpdateProduct : IRequest<Products>
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
+
+        public string ManufactorEmail { get; set; }
+
 
     }
 }

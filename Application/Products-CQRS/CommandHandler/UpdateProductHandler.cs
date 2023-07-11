@@ -23,11 +23,8 @@ namespace Application.Products_CQRS.CommandHandler
 
         public async Task<Products> Handle(UpdateProduct request, CancellationToken cancellationToken)
         {
-            var UpdatedName = new Products()
-            {
-                Name = request.Name,
-            };
-            return await _repository.UpdateProducts(UpdatedName, request.Id);
+
+            return await _repository.UpdateProducts(request.Name, request.Id);
         }
     }
 }

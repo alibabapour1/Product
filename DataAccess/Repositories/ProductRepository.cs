@@ -50,14 +50,13 @@ namespace DataAccess.Repositories
             return product;
         }
 
-        public async Task<Products> UpdateProducts(Products product, int productid)
+        public async Task<Products> UpdateProducts(string Name  , int productid, string ManufactorEmail)
         {
             var p = await _ctx.Products.FirstOrDefaultAsync(p=>p.Id==productid);
-            p.ManufacturePhone= product.ManufacturePhone;
-            p.ManufactureEmail= product.ManufactureEmail;
+         
             p.ProduceDate= DateTime.Now;
-            p.IsAvailable= product.IsAvailable;
-            p.Name = product.Name;
+            
+            p.Name = Name;
             await _ctx.SaveChangesAsync();
             return p;
         }

@@ -37,9 +37,9 @@ namespace Domain
         public string Name { get; set; }
 
 
-        public Users User { get; set; }
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
+        //public Users User { get; set; }
+        //[ForeignKey(nameof(User))]
+        //public int UserId { get; set; }
 
 
 

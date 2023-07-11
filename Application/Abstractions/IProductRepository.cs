@@ -12,7 +12,7 @@ namespace Application.Abstractions
         Task<ICollection<Products>> GetAllProducts();
         Task<Products> GetProductsById(int productid);
         Task<Products> CreateProducts(Products product);
-        Task<Products> UpdateProducts(Products product, int productid);
+        Task<Products> UpdateProducts(string Name, int productid);
         Task DeleteProducts(int productid);
     }
 }
